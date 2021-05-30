@@ -6,7 +6,8 @@ const {
 	createProduct,
 	updateProduct,
 	deleteProduct,
-	putProduct
+	putProduct,
+	createUser
 } = require('../controllers/store')
 
 router
@@ -15,11 +16,17 @@ router
 .put(putProduct)
 
 router
-.route('/')
-.get(getProduct)
+.route('/products')
 .post(createProduct)
-.delete(deleteProduct)
-.put(updateProduct)
 
+router
+.route('/users')
+.post(createUser)
+
+router
+.route('/products/:id')
+.get(getProduct)
+.put(updateProduct)
+.delete(deleteProduct)
 
 module.exports = router
